@@ -9,6 +9,8 @@ struct RootView: View {
             if !game.hasStarted {
                 HomeView()
                     .transition(.opacity)
+            } else if game.isIn3DAdventure {
+                Island3DGameView()
             } else if let flow = game.flow {
                 switch flow {
                 case .story:
@@ -41,6 +43,17 @@ struct MainShellView: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
+                Button {
+                    game.openAdventureIsland()
+                } label: {
+                    Label("返回小岛", systemImage: "gamecontroller.fill")
+                        .font(.subheadline.weight(.bold))
+                        .padding(.horizontal, 13)
+                        .padding(.vertical, 10)
+                        .foregroundStyle(.white)
+                        .background(Capsule().fill(IslandTheme.leaf))
+                }
+                .buttonStyle(.plain)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(MainDestination.allCases, id: \.self) { item in

@@ -29,6 +29,7 @@ final class GameViewModel: ObservableObject {
     let levels = AdventureContent.levels
 
     @Published var hasStarted = false
+    @Published var isIn3DAdventure = false
     @Published var destination: MainDestination = .map
     @Published var activeLevel: Level?
     @Published var activeQuestions: [Question] = []
@@ -42,10 +43,27 @@ final class GameViewModel: ObservableObject {
         self.bank = bank
         self.store = store
         progress = store.load()
+#if targetEnvironment(simulator)
+        if ProcessInfo.processInfo.environment["OPEN_3D_PREVIEW"] == "1" {
+            hasStarted = true
+            isIn3DAdventure = true
+        }
+#endif
     }
 
     func enterIsland() {
         hasStarted = true
+        isIn3DAdventure = true
+        destination = .map
+    }
+
+    func openAdventureIsland() {
+        closeAdventure()
+        isIn3DAdventure = true
+    }
+
+    func openLearningCenter() {
+        isIn3DAdventure = false
         destination = .map
     }
 
