@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capybara Game QA"
+  short_description: "Independently verify design and gameplay"
+  default_prompt: "Use $capybara-game-qa to independently verify a completed level against its approved specification."

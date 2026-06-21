@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capybara Level Designer"
+  short_description: "Design scene-linked math game levels"
+  default_prompt: "Use $capybara-level-design to design the next scene-linked math level and save its specification."

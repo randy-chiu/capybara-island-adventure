@@ -1,14 +1,6 @@
-# Xcode user and build state
-DerivedData/
-build/
-*.xcuserstate
-xcuserdata/
-*.xccheckout
-*.xcscmblueprint
-
-# Swift Package Manager generated files
-.build/
-.swiftpm/
+# Godot generated files
+.godot/
+Game/.godot/
 
 # macOS
 .DS_Store

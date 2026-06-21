@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capybara Godot Developer"
+  short_description: "Implement approved level specs in Godot"
+  default_prompt: "Use $capybara-godot-implementation to implement an approved level specification without altering its design."
